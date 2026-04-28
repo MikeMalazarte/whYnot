@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Knot & Craft — Handmade with Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F0FFDF;
+    --blush: #FFAAB8;
+    --rose: #FF7A90;
+    --deep: #2D5016;
+    --warm: #4A7A2A;
+    --muted: #A8DF8E;
+    --white: #FFFFFF;
+    --pink-light: #FFD8DF;
+    --green-mid: #A8DF8E;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background: rgba(240, 255, 223, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(168, 223, 142, 0.4);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--deep);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--rose); font-style: italic; }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--warm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--rose); }
+
+  .nav-order-btn {
+    background: var(--rose) !important;
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 100px;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-order-btn:hover {
+    background: var(--warm) !important;
+    transform: translateY(-1px);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,216,223,0.5) 0%, transparent 70%);
+    top: -100px; right: -150px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    color: var(--warm);
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rose);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--warm);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    color: var(--rose);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .btn-ghost:hover { gap: 0.75rem; }
+
+  .hero-decorative {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 360px;
+    height: 420px;
+  }
+
+  .polaroid {
+    position: absolute;
+    background: var(--white);
+    padding: 0.9rem 0.9rem 2.5rem;
+    box-shadow: 0 8px 28px rgba(45,80,22,0.13);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.35s ease;
+    cursor: default;
+  }
+
+  .polaroid:hover { transform: rotate(0deg) scale(1.06) !important; z-index: 10; }
+
+  .polaroid-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.8rem;
+  }
+
+  .polaroid-label {
+    margin-top: 0.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--warm);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* individual positions & rotations */
+  .polaroid:nth-child(1) {
+    width: 155px;
+    top: 20px; left: 10px;
+    transform: rotate(-6deg);
+    z-index: 3;
+  }
+  .polaroid:nth-child(1) .polaroid-img { background: linear-gradient(135deg, #FFD8DF, #FFAAB8); }
+
+  .polaroid:nth-child(2) {
+    width: 145px;
+    top: 10px; right: 15px;
+    transform: rotate(5deg);
+    z-index: 2;
+  }
+  .polaroid:nth-child(2) .polaroid-img { background: linear-gradient(135deg, #F0FFDF, #A8DF8E); }
+
+  .polaroid:nth-child(3) {
+    width: 150px;
+    bottom: 40px; left: 30px;
+    transform: rotate(4deg);
+    z-index: 4;
+  }
+  .polaroid:nth-child(3) .polaroid-img { background: linear-gradient(135deg, #A8DF8E, #F0FFDF); }
+
+  .polaroid:nth-child(4) {
+    width: 148px;
+    bottom: 20px; right: 10px;
+    transform: rotate(-4deg);
+    z-index: 1;
+  }
+  .polaroid:nth-child(4) .polaroid-img { background: linear-gradient(135deg, #FFAAB8, #FFD8DF); }
+
+  /* tape strip on each */
+  .polaroid::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px; height: 20px;
+    background: rgba(255, 216, 223, 0.75);
+    border-radius: 2px;
+    z-index: 5;
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: #FFAAB8;
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner span {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--deep);
+    padding: 0 2rem;
+  }
+
+  .marquee-dot {
+    color: rgba(45,80,22,0.4);
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    animation: marquee 22s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 4rem;
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--warm);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  /* PRODUCTS — editorial layout */
+  #products { background: #FFD8DF; }
+
+  .feat-row {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .feat-hero {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 520px;
+  }
+
+  .feat-hero-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    background: linear-gradient(160deg, #FFD8DF 0%, #FFAAB8 100%);
+    min-height: 280px;
+  }
+
+  .feat-hero-tag {
+    position: absolute;
+    top: 1.1rem; left: 1.1rem;
+    background: var(--rose);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+  }
+
+  .feat-hero-info { padding: 1.5rem 1.75rem 1.75rem; }
+
+  .feat-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .feat-mini {
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--white);
+  }
+
+  .feat-mini-icon {
+    font-size: 3.5rem;
+    width: 90px; height: 90px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #F0FFDF 0%, #A8DF8E 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feat-mini-body { flex: 1; }
+
+  .feat-mini-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .feat-tiny {
+    border-radius: 24px;
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feat-tiny--green { background: #A8DF8E; }
+  .feat-tiny--blush { background: var(--white); }
+
+  .feat-tiny-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+
+  .feat-cat {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .feat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+
+  .feat-desc {
+    font-size: 0.85rem;
+    color: var(--warm);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+  }
+
+  .feat-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .feat-price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--rose);
+  }
+
+  .feat-new-badge {
+    background: #A8DF8E;
+    color: var(--deep);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .order-btn {
+    background: var(--rose);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .order-btn:hover { background: var(--warm); }
+
+  /* CUSTOM ORDER */
+  #custom {
+    background: #A8DF8E;
+    color: var(--deep);
+  }
+
+  #custom .section-title { color: var(--deep); }
+  #custom .section-eyebrow { color: var(--rose); }
+  #custom .section-subtitle { color: var(--warm); max-width: 500px; }
+
+  .custom-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .custom-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(45,80,22,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+    flex-shrink: 0;
+  }
+
+  .step-text h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-text p {
+    font-size: 0.85rem;
+    color: var(--warm);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .custom-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .custom-tile {
+    background: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .custom-tile:hover { background: rgba(255,255,255,0.65); }
+
+  .custom-tile-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+  .custom-tile h5 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .custom-tile p {
+    font-size: 0.78rem;
+    color: var(--warm);
+    font-weight: 300;
+  }
+
+  /* SOCIALS / ORDER */
+  #order {
+    background: var(--cream);
+    text-align: center;
+  }
+
+  .social-cards {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .social-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--deep);
+    min-width: 180px;
+    border: 1.5px solid transparent;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(45,80,22,0.08);
+  }
+
+  .social-card:hover {
+    border-color: var(--rose);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(255,170,184,0.3);
+  }
+
+  .social-icon { font-size: 2rem; }
+
+  .social-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .social-handle {
+    font-size: 0.8rem;
+    color: var(--warm);
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #FFAAB8;
+    color: var(--deep);
+    text-align: center;
+    padding: 2rem 4rem;
+    font-size: 0.82rem;
+    font-weight: 300;
+  }
+
+  footer a { color: var(--deep); text-decoration: none; font-weight: 500; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+
+    .hero {
+      flex-direction: column;
+      padding: 6rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .hero-content { max-width: 100%; }
+    .hero-content p { max-width: 100%; }
+    .hero-cta { justify-content: center; }
+    .hero-decorative { display: none; }
+    .hero-bg-circle { display: none; }
+
+    section { padding: 4rem 1.25rem; }
+
+    .products-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .feat-row { grid-template-columns: 1fr; }
+    .feat-mini-row { grid-template-columns: 1fr 1fr; }
+
+    .custom-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    footer { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner" style="display:flex; align-items:center; justify-content:space-between;">
+  <a href="#" class="nav-logo">Knot <span>&</span> Craft</a>
+  <ul>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#custom">Custom</a></li>
+    <li><a href="#order" class="nav-order-btn">Order Now</a></li>
+  </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner" style="display:flex; align-items:center; width:100%; position:relative;">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ Handmade with love, one knot at a time</p>
+    <h1>Jewelry that tells <em>your</em> story</h1>
+    <p>Handcrafted bracelets, crochet pieces, keychains, and necklaces — each made with care and fully customizable just for you.</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">Browse Collection</a>
+      <a href="#custom" class="btn-ghost">Custom Orders →</a>
+    </div>
+  </div>
+  <div class="hero-decorative">
+    <div class="polaroid">
+      <div class="polaroid-img">📿</div>
+      <span class="polaroid-label">bracelets</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">🧶</div>
+      <span class="polaroid-label">crochet</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">🗝️</div>
+      <span class="polaroid-label">keychains</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">✨</div>
+      <span class="polaroid-label">necklaces</span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span>Handmade with Love <span class="marquee-dot">✦</span></span>
+    <span>Bracelets <span class="marquee-dot">✦</span></span>
+    <span>Crochet <span class="marquee-dot">✦</span></span>
+    <span>Keychains <span class="marquee-dot">✦</span></span>
+    <span>Necklaces <span class="marquee-dot">✦</span></span>
+    <span>Made to Order <span class="marquee-dot">✦</span></span>
+    <span>Ships Nationwide <span class="marquee-dot">✦</span></span>
+    <span>Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span>Handmade with Love <span class="marquee-dot">✦</span></span>
+    <span>Bracelets <span class="marquee-dot">✦</span></span>
+    <span>Crochet <span class="marquee-dot">✦</span></span>
+    <span>Keychains <span class="marquee-dot">✦</span></span>
+    <span>Necklaces <span class="marquee-dot">✦</span></span>
+    <span>Made to Order <span class="marquee-dot">✦</span></span>
+    <span>Ships Nationwide <span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="inner">
+  <div style="text-align:center; margin-bottom: 3.5rem;">
+    <p class="section-eyebrow">Our Collection</p>
+    <h2 class="section-title">Made for every <em style="font-style:italic; color:var(--rose); font-family:'Cormorant Garamond',serif;">mood</em></h2>
+    <p style="font-size:1rem; color:var(--warm); font-weight:300; max-width:420px; margin:0.75rem auto 0; line-height:1.7;">Pre-built and ready to ship — or tell us your vision and we'll make it from scratch.</p>
+  </div>
+
+  <!-- BIG FEATURE ROW -->
+  <div class="feat-row">
+
+    <!-- LEFT: tall hero item -->
+    <div class="feat-hero">
+      <div class="feat-hero-img">📿</div>
+      <div class="feat-hero-tag">✦ Bestseller</div>
+      <div class="feat-hero-info">
+        <span class="feat-cat">Bracelets</span>
+        <h3 class="feat-name">Beaded Charm Bracelet</h3>
+        <p class="feat-desc">Adjustable and fully mix-and-match — pick your beads, colors, and charms. No two are ever the same.</p>
+        <div class="feat-bottom">
+          <span class="feat-price">From ₱120</span>
+          <a href="#order" class="order-btn">Order →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: stacked smaller items -->
+    <div class="feat-stack">
+
+      <div class="feat-mini feat-mini--pink">
+        <div class="feat-mini-icon">🧶</div>
+        <div class="feat-mini-body">
+          <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem;">
+            <span class="feat-cat" style="margin:0;">Crochet</span>
+            <span class="feat-new-badge">New</span>
+          </div>
+          <h3 class="feat-name" style="font-size:1.2rem; margin-bottom:0.4rem;">Mini Crochet Bag</h3>
+          <p class="feat-desc" style="font-size:0.82rem; margin-bottom:0.9rem;">Cute crocheted pouches in any color combo. Perfect as gifts!</p>
+          <div class="feat-bottom">
+            <span class="feat-price">From ₱180</span>
+            <a href="#order" class="order-btn">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-mini-row">
+        <div class="feat-tiny feat-tiny--green">
+          <div class="feat-tiny-icon">🗝️</div>
+          <span class="feat-cat" style="font-size:0.65rem;">Keychains</span>
+          <h3 class="feat-name" style="font-size:1rem; margin:0.25rem 0 0.3rem;">Crochet Keychain</h3>
+          <p class="feat-desc" style="font-size:0.78rem; margin-bottom:0.75rem;">Add initials, shapes, or fave colors.</p>
+          <div class="feat-bottom" style="flex-direction:column; align-items:flex-start; gap:0.5rem;">
+            <span class="feat-price">From ₱80</span>
+            <a href="#order" class="order-btn" style="font-size:0.75rem; padding:0.4rem 0.9rem;">Order →</a>
+          </div>
+        </div>
+
+        <div class="feat-tiny feat-tiny--blush">
+          <div class="feat-tiny-icon">✨</div>
+          <span class="feat-cat" style="font-size:0.65rem;">Necklaces</span>
+          <h3 class="feat-name" style="font-size:1rem; margin:0.25rem 0 0.3rem;">Dainty Bead Necklace</h3>
+          <p class="feat-desc" style="font-size:0.78rem; margin-bottom:0.75rem;">Layerable, lightweight, all yours.</p>
+          <div class="feat-bottom" style="flex-direction:column; align-items:flex-start; gap:0.5rem;">
+            <span class="feat-price">From ₱150</span>
+            <a href="#order" class="order-btn" style="font-size:0.75rem; padding:0.4rem 0.9rem;">Order →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- CUSTOM ORDER -->
+<section id="custom">
+  <div class="inner">
+  <div class="custom-layout">
+    <div>
+      <p class="section-eyebrow">✦ Make it yours</p>
+      <h2 class="section-title">Custom orders, just for you</h2>
+      <p class="section-subtitle">Every piece is made by hand. Tell us what you want and we'll bring it to life — colors, charms, sizes, and more.</p>
+
+      <div class="custom-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Message us on socials</h4>
+            <p>Reach out on Facebook or Instagram with your idea, inspo pics, or just a color you love.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>We design it together</h4>
+            <p>We'll chat, send you a preview, and tweak until it's exactly what you imagined.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Handmade & shipped</h4>
+            <p>Your one-of-a-kind piece gets crafted and sent straight to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-visual">
+      <div class="custom-tile">
+        <div class="custom-tile-icon">🎨</div>
+        <h5>Any color</h5>
+        <p>Full palette, your pick</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">📏</div>
+        <h5>Any size</h5>
+        <p>Custom fit every time</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">💌</div>
+        <h5>Gift-ready</h5>
+        <p>Wrapped with a note</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">⚡</div>
+        <h5>Quick turnaround</h5>
+        <p>Fast & lovingly made</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ORDER / SOCIALS -->
+<section id="order">
+  <div class="inner">
+  <p class="section-eyebrow">Place an order</p>
+  <h2 class="section-title">Ready to order?</h2>
+  <p class="section-subtitle" style="margin: 0 auto 0.5rem; text-align:center;">
+    Shoot us a message on any of our socials and we'll get your order started! We're friendly, we promise 🤍
+  </p>
+
+  <div class="social-cards">
+
+    <a href="https://facebook.com/YOURPAGE" target="_blank" class="social-card">
+      <span class="social-icon">📘</span>
+      <span class="social-name">Facebook</span>
+      <span class="social-handle">@YourPageName</span>
+    </a>
+
+    <a href="https://instagram.com/YOURHANDLE" target="_blank" class="social-card">
+      <span class="social-icon">📸</span>
+      <span class="social-name">Instagram</span>
+      <span class="social-handle">@yourhandle</span>
+    </a>
+
+    <a href="https://tiktok.com/@YOURHANDLE" target="_blank" class="social-card">
+      <span class="social-icon">🎵</span>
+      <span class="social-name">TikTok</span>
+      <span class="social-handle">@yourhandle</span>
+    </a>
+
+    <a href="https://shopee.ph/YOURSHOP" target="_blank" class="social-card">
+      <span class="social-icon">🛍️</span>
+      <span class="social-name">Shopee</span>
+      <span class="social-handle">Your Shop</span>
+    </a>
+
+  </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+  <p>© 2025 Knot & Craft &nbsp;·&nbsp; Handmade with ♥ in the Philippines &nbsp;·&nbsp; <a href="#order">Contact Us</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
