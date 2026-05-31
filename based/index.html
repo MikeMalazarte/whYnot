@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Knot.yne — Handmade with Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+
+<!-- Favicon (tab icon) -->
+<link rel="icon" type="image/png" href="assets/logo1.png">
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner" style="display:flex; align-items:center; justify-content:space-between;">
+
+    <!-- LOGO LOCKUP: image + text together -->
+    <a href="#" class="nav-brand">
+      <img src="assets/logo1.png" alt="Knot.yne logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="nav-logo">Knot <span>.yne</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul>
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#custom">Custom</a></li>
+      <li><a href="#order" class="nav-order-btn">Order Now</a></li>
+    </ul>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- MOBILE MENU DRAWER -->
+<ul class="mobile-menu" id="mobileMenu">
+  <li><a href="#products" class="mobile-link">Shop</a></li>
+  <li><a href="#custom" class="mobile-link">Custom</a></li>
+  <li><a href="#order" class="mobile-link mobile-order-btn">Order Now</a></li>
+</ul>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner hero-grid">
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Handmade with love in the PH</p>
+      <h1>Jewelry that tells <em>your</em> story</h1>
+      <p>Handcrafted bracelets, crochet pieces, and necklaces — each made with care and fully customizable just for you.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-primary">Browse Collection</a>
+        <a href="#custom" class="btn-ghost">Custom Orders →</a>
+      </div>
+    </div>
+
+    <!-- Visual Side -->
+    <div class="hero-visual">
+      <div class="main-image-wrapper">
+        <!-- Slide 1 -->
+        <img src="assets/key1.jpg" alt="Bracelets" class="hero-slide">
+        <!-- Slide 2 -->
+        <img src="assets/TOOTHLESS AND LIGHT FURY.png" alt="Necklaces" class="hero-slide">
+        <!-- Slide 3 -->
+        <img src="assets/key2.jpg" alt="Crochet" class="hero-slide">
+
+      </div>
+      <!-- Background Blob -->
+      <div class="hero-blob"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span>Handmade with Love <span class="marquee-dot">✦</span></span>
+    <span>Bracelets <span class="marquee-dot">✦</span></span>
+    <span>Crochet <span class="marquee-dot">✦</span></span>
+    <span>Keychains <span class="marquee-dot">✦</span></span>
+    <span>Necklaces <span class="marquee-dot">✦</span></span>
+    <span>Made to Order <span class="marquee-dot">✦</span></span>
+    <span>Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span>Handmade with Love <span class="marquee-dot">✦</span></span>
+    <span>Bracelets <span class="marquee-dot">✦</span></span>
+    <span>Crochet <span class="marquee-dot">✦</span></span>
+    <span>Keychains <span class="marquee-dot">✦</span></span>
+    <span>Necklaces <span class="marquee-dot">✦</span></span>
+    <span>Made to Order <span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom: 2rem;">
+      <p class="section-eyebrow">Our Collection</p>
+      <h2 class="section-title">Made for every <em>mood</em></h2>
+    </div>
+
+    <!-- Slider Container -->
+    <div class="product-slider-container">
+      <div class="product-track" id="productTrack">
+        
+        <!-- Slide 1: Crochets -->
+        <div class="product-slide">
+          <h3 class="cat-title">🧶 Crochets</h3>
+          <div class="product-grid">
+            <div class="product-item">
+              <img src="assets/BT21 KEYCHAINS 3.png" alt="Crochet 1">
+            </div>
+            <div class="product-item">
+              <img src="assets//SUNFLOWER (1).png" alt="Crochet 2">
+            </div>
+            <div class="product-item">
+              <img src="assets/NICO ROBIN AMI.png" alt="Crochet 3">
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: String Charms -->
+        <div class="product-slide">
+          <h3 class="cat-title">✨ String Charms</h3>
+          <div class="product-grid">
+            <img src="assets/key2.jpg"   alt="Charm 1">
+            <img src="assets/Qxios7sP.jpg"   alt="Charm 2">
+            <img src="assets/keychaainName.png" alt="Charm 3">
+          </div>
+        </div>
+
+        <!-- Slide 3: Bracelets -->
+        <div class="product-slide">
+          <h3 class="cat-title">📿 String Bracelets</h3>
+          <div class="product-grid">
+            <img src="assets/beads.jpg" alt="Bead 1">
+            <img src="assets/bracelet.jpg" alt="Bead 2">
+            <img src="assets/bracelet.webp" alt="Bead 3">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="slider-arrow prev" id="prevBtn">❮</button>
+      <button class="slider-arrow next" id="nextBtn">❯</button>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM ORDER -->
+<section id="custom">
+  <div class="inner">
+  <div class="custom-layout">
+    <div>
+      <p class="section-eyebrow">✦ Make it yours</p>
+      <h2 class="section-title">Custom orders, just for you</h2>
+      <p class="section-subtitle">Every piece is made by hand. Tell us what you want and we'll bring it to life — colors, charms, sizes, and more.</p>
+
+      <div class="custom-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Message us on socials</h4>
+            <p>Reach out on Facebook or Instagram with your idea, inspo pics, or just a color you love.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>We design it together</h4>
+            <p>We'll chat, send you a preview, and tweak until it's exactly what you imagined.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Handmade & shipped</h4>
+            <p>Your one-of-a-kind piece gets crafted and sent straight to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-visual">
+      <div class="custom-tile">
+        <div class="custom-tile-icon">🎨</div>
+        <h5>Any color</h5>
+        <p>Full palette, your pick</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">📏</div>
+        <h5>Any size</h5>
+        <p>Custom fit every time</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">💌</div>
+        <h5>Gift-ready</h5>
+        <p>Wrapped with a note</p>
+      </div>
+      <div class="custom-tile">
+        <div class="custom-tile-icon">⚡</div>
+        <h5>Quick turnaround</h5>
+        <p>Fast & lovingly made</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ORDER / SOCIALS -->
+<section id="order">
+  <div class="inner">
+  <p class="section-eyebrow">Place an order</p>
+  <h2 class="section-title">Ready to order?</h2>
+  <p class="section-subtitle" style="margin: 0 auto 0.5rem; text-align:center;">
+    Shoot us a message on any of our socials and we'll get your order started! We're friendly, we promise 🤍
+  </p>
+
+  <div class="social-cards">
+    <a href="https://www.facebook.com/Yneiei" target="_blank" class="social-card">
+      <span class="social-icon">📘</span>
+      <span class="social-name">Facebook</span>
+      <span class="social-handle">@Khirstine Tajos</span>
+    </a>
+    <a href="https://www.instagram.com/knot.yne" target="_blank" class="social-card">
+      <span class="social-icon">📸</span>
+      <span class="social-name">Instagram</span>
+      <span class="social-handle">@knot.yne</span>
+    </a>
+    <a href="https://www.tiktok.com/@knot.yne" target="_blank" class="social-card">
+      <span class="social-icon">🎵</span>
+      <span class="social-name">TikTok</span>
+      <span class="social-handle">@𝓴𝓷𝓸𝓽.𝔂𝓷𝓮 ⋆.𐙚 ̊</span>
+    </a>
+  </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+  <p>© 2025 Knot & Craft &nbsp;·&nbsp; Handmade with ♥ in the Philippines &nbsp;·&nbsp; <a href="#order">Contact Us</a></p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Close drawer when a link is clicked
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+// Wrap everything to ensure variables don't conflict
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('productTrack');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  
+  // Re-define slides here to make sure they are found
+  const slides = document.querySelectorAll('.product-slide');
+  
+  let index = 0;
+
+  // Check if elements exist to prevent errors
+  if (!track || !nextBtn || !prevBtn || slides.length === 0) {
+    console.error("Slider elements missing! Check your IDs and Classes.");
+    return;
+  }
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateSlider();
+    resetAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+    resetAutoSlide();
+  });
+
+  // Auto-slide logic
+  let autoSlideInterval = setInterval(() => {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }, 5000);
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    }, 5000);
+  }
+});
+</script>
+
+</body>
+</html>
