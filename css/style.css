@@ -1,5 +1,15 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  }
+
+  section, .hero, .marquee-wrap, footer {
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  
   :root {
     --cream: #F0FFDF;
     --blush: #FFAAB8;
@@ -359,7 +369,8 @@
 
 .hero-blob {
   position: absolute;
-  width: 130%; height: 130%;
+  width: 100%;   /* change from 130% */
+  height: 100%;  /* change from 130% */
   background: var(--pink-light);
   filter: blur(60px);
   border-radius: 50%;
